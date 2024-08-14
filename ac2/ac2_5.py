@@ -76,6 +76,9 @@ if productsStr != '':
         dor.append(evenMoreRealCod)
         tds.append(evenMoreRealQtd)
     for i in range(len(tds)):
+        if dor[i] not in codigo:
+            st.write('the code not exist')
+            break
         precu += codigo[dor[i]].preco * tds[i]
     st.write(f'Preço Final: {precu}')
         
