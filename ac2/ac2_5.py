@@ -46,43 +46,39 @@ st.title("Lanchonete")
 #st.sidebar.checkbox('verd')
 #st.sidebar.checkbox('falso')
 
-userCode = st.text_input('Código de usuario: ')
-password = st.text_input('Senha: ')
-    
-    st.text('Acesso permitido')
-    st.text(cardapio)
-    st.text('Para pedir um produto escreva "codigo do produto : quantidade, codigo do produto : quantidade..."')
-    productsStr = st.text_input('Produtos: ')
-    if productsStr != '':
-        products = productsStr.split(',')
-        dor = []
-        tds = []
-        precu = 0
-        for i in products:
-           
-            productSplit = i.split(':')
-            code = productSplit[0]
-            realCod = ''
-            
-            qtd = productSplit[1]
-            realQtd = ''
+st.text(cardapio)
+st.text('Para pedir um produto escreva "codigo do produto : quantidade, codigo do produto : quantidade..."')
+productsStr = st.text_input('Produtos: ')
+if productsStr != '':
+    products = productsStr.split(',')
+    dor = []
+    tds = []
+    precu = 0
+    for i in products:
+       
+        productSplit = i.split(':')
+        code = productSplit[0]
+        realCod = ''
+        
+        qtd = productSplit[1]
+        realQtd = ''
 
-            for i in list(code):
-                if i != ' ':
-                    realCod += i
-            for i in list(qtd):
-                if i != ' ':
-                    realQtd += i
-            
-            evenMoreRealCod = int(realCod)
-            evenMoreRealQtd = int(realQtd)
+        for i in list(code):
+            if i != ' ':
+                realCod += i
+        for i in list(qtd):
+            if i != ' ':
+                realQtd += i
+        
+        evenMoreRealCod = int(realCod)
+        evenMoreRealQtd = int(realQtd)
 
-            dor.append(evenMoreRealCod)
-            tds.append(evenMoreRealQtd)
-        for i in range(len(tds)):
-            precu += codigo[dor[i]].preco * tds[i]
-        st.write(f'Preço Final: {precu}')
-            
+        dor.append(evenMoreRealCod)
+        tds.append(evenMoreRealQtd)
+    for i in range(len(tds)):
+        precu += codigo[dor[i]].preco * tds[i]
+    st.write(f'Preço Final: {precu}')
+        
     
     
 # python -m streamlit run your_script.py
