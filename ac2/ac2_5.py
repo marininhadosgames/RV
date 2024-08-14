@@ -1,7 +1,5 @@
 import streamlit as st
 import random
-usuario = 1234
-senha= 9999
 class item():
     def __init__(self, nome, preco):
         self.nome = nome
@@ -50,22 +48,6 @@ st.title("Lanchonete")
 
 userCode = st.text_input('Código de usuario: ')
 password = st.text_input('Senha: ')
-if userCode != '' and password != '':
-    userCode = int(userCode)
-    password = int(password)
-    if userCode != usuario:
-        st.text('O usuário está errado')
-        can = False
-    elif password != senha:
-        st.text('A senha está errada')
-        can = False
-    else:
-        can = True
-else:
-    can = False
-
-suma = 0
-if can == True:
     
     st.text('Acesso permitido')
     st.text(cardapio)
